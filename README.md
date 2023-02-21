@@ -500,7 +500,7 @@ list CPU information
 ```
 lscpu
 ```
-![lscpu](lscpu.png)
+![lscpu](lscpu.PNG)
 
 ## lshw
  is a small tool to extract detailed information on the hardware configuration of the  machine 
