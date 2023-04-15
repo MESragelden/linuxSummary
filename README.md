@@ -9,7 +9,7 @@
 | [id](#id) | Print user and group information for each specified USER |
 |  [hostname](#hostname) | display the system's DNS name |
 |  [uptime](#uptime) | gives  a  one  line display of the following information |
-|  [date](#data) | gives  a  one  line display of the following information |
+|  [date](#data) |Display the current time in the given FORMAT, or set the system date |
 |  [cal](#cal) | displays a simple calendar in traditional format and ncal offers an alternative layout |
 |  [clear](#clear) | clears your screen if this is possible |
 |[echo](#echo) | displays information on the console |echo HI
@@ -43,7 +43,6 @@
 | [diff](#diff) | compares files line by line and displays the differences | diff cities.txt cities2.txt |
 | [tar](#tar) | created bundel is called a tarball | tarfile.tar |
 | [gzip](#gzip) | compresses files, including tarballs | gizp salesdata.tar |
-| [ln](#ln) | syntax for creating a hard link | |
 | [chown](#chown) | changes the user and/or group ownership of each given file | |
 | [chmod](#chmod) | sets permissions on files | |
 | [cut](#cut) | displays that information to standard output | |
@@ -132,7 +131,7 @@ uptime
 ![uptime](uptime.PNG)
 
 ## date 
- gives  a  one  line display of the following 
+ Display the current time in the given FORMAT, or set the system date
 
 ``` 
 date 
@@ -146,8 +145,12 @@ date
 ``` 
 cal 
 ```
-![cal ](cal.PNG)
-
+![cal](cal.PNG)
+```
+cal (any year or month)
+```
+![cal.2](cal.2.PNG)
+![cal.2](cal.3.PNG)
 ## clear
 clears your screen if this is possible
 ```
@@ -190,7 +193,19 @@ list the content of the current folder
 ```
 ls -l
 ```
-![ls-l](ls_l.PNG)
+![ls -l](ls-l.PNG)
+```
+-a, --all     do not ignore entries starting with .
+```
+![ls-a](ls-a.PNG)
+```
+-h, --human-readable   with -l and -s, print sizes like 1K 234M 2G etc.
+```
+![ls-lh](ls-lh.PNG)
+```
+ -t          sort by time, newest first; see --time
+ ```
+ ![ls-lt](ls-lt.PNG)
 
 ## find
  searches a desgnated directory for files that match 
@@ -205,11 +220,20 @@ find
 sudo useradd mazen
 ```
 ![useradd](useradd.PNG)
-
+```
+-u, --uid UID                 user ID of the new account
+-s, --shell SHELL             login shell of the new account
+-p, --password PASSWORD      encrypted password of the new account
+```
+![useradd-](useradd-.jpg)
 ## grep
  defines account | grep fail /var /log/secure
 ```
 grep -i field logfile.txt
+```
+![grep](grep.PNG)
+```
+-G, --groups GROUPS       list of supplementary groups of the new account
 ```
 ![grep](grep.PNG)
 
@@ -219,6 +243,19 @@ grep -i field logfile.txt
 sudo usermod -c "this is CTO" mazen
 ```
 ![usermod](usermod.PNG)
+```
+-u, --uid UID                 new UID for the user account
+```
+![usermod.1](usermod.1.PNG)
+```
+-G, --groups GROUPS           new list of supplementary GROUPS
+```
+![usermod.2](usermod.2.PNG)
+```
+ -L, --lock                    lock the user account
+ -U, --unlock                  unlock the user account
+ ```
+ ![usermod.3](usermod.3.PNG)
 
 ## userdel
  delets a user account | userdel -r to also delete the 
@@ -233,6 +270,18 @@ sudo userdel mazen
 sudo passwd ali
 ```
 ![passwd](passwd.PNG)
+```
+ -d, --delete     delete the password for the named account
+ ```
+ ![passwd-d](passwd-d.jpg)
+ ```
+ -l, --lock       lock the password of the named account
+ ```
+![passwd-l](passwd-l.jpg)
+```
+ -u, --unlock     unlock the password of the named account
+ ```
+![passwd-u](passwd-u.jpg)
 
 ## groupadd
  creats a new group | groupadd group 
@@ -294,17 +343,24 @@ less
 ## head 
  displays the first 10 lines of a file by default 
 ```
-head logfile.txt
+head Employees.csv
 ```
 ![head](head.PNG)
+```
+ -n, --lines=[-]NUM       print the first NUM lines instead of the first 10; with the leading '-', print all but the NUM lines of each file
+```
+![head-n](head-n.jpg)
 
 ## tail 
  displays the last 10 lines of file by default
 ```
- tail logfile.txt
+tail Employees.csv
 ```
 ![tail](tail.PNG)
-
+```
+-n, --lines=[+]NUM       output the last NUM lines, instead of the last 10; or use -n +NUM to output starting with line NUM
+```
+![tail-n](tail-n.jpg)
 ## cp
  copies files and directories 
 ```
@@ -375,13 +431,6 @@ gzip logfile.txt
 ```
 ![gzip](gzip.PNG)
 
-## ln
-syntax for creating a hard link 
-```
-ln
-```
-![ln](ln.PNG)
-
 ## chown
 changes the user and/or group ownership of each given file
 ```
@@ -392,7 +441,9 @@ chown
 ## chmod
 change file mode bits
 ```
-chmod
+chmod g+w 
+chmod o+w
+chmod o-w,g-w
 ```
 ![chmod](chmod.PNG)
 
@@ -863,39 +914,3 @@ echo " hello what is your name ? "
 read VARNAME
 echo "glad to meet you , $VARNAME"
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
